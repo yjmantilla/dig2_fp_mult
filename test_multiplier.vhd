@@ -34,27 +34,38 @@ use ieee.numeric_std.all;
 --USE ieee.numeric_std.ALL;
  
 ENTITY test_multiplier IS
+
+	 	     Generic
+	 (
+        NBITS_TEST: integer := 24
+    );
 END test_multiplier;
  
 ARCHITECTURE behavior OF test_multiplier IS 
  
     -- Component Declaration for the Unit Under Test (UUT)
+
  
     COMPONENT multiplier
+	 
+	     Generic
+	 (
+        NBITS : integer := NBITS_TEST
+    );
     PORT(
-         i_a : IN  std_logic_vector(23 downto 0);
-         i_b : IN  std_logic_vector(23 downto 0);
-         o_p : OUT  std_logic_vector(47 downto 0)
+         i_a : IN  std_logic_vector(NBITS - 1 downto 0);
+         i_b : IN  std_logic_vector(NBITS - 1 downto 0);
+         o_p : OUT  std_logic_vector(2*NBITS - 1 downto 0)
         );
     END COMPONENT;
     
 
    --Inputs
-   signal i_a : std_logic_vector(23 downto 0) := (others => '0');
-   signal i_b : std_logic_vector(23 downto 0) := (others => '0');
+   signal i_a : std_logic_vector(NBITS_TEST - 1 downto 0) := (others => '0');
+   signal i_b : std_logic_vector(NBITS_TEST - 1 downto 0) := (others => '0');
 
  	--Outputs
-   signal o_p : std_logic_vector(47 downto 0);
+   signal o_p : std_logic_vector(2*NBITS_TEST - 1 downto 0);
    -- No clocks detected in port list. Replace <clock> below with 
    -- appropriate port name 
  
@@ -73,8 +84,8 @@ BEGIN
    begin		
       -- hold reset state for 100 ns.
       wait for 10 ns;	
-		i_a <= std_logic_vector (to_unsigned(245, i_a'length));
-		i_b <= std_logic_vector (to_unsigned(175, i_b'length));
+		i_a <= std_logic_vector (to_unsigned(9437184, i_a'length));
+		i_b <= std_logic_vector (to_unsigned(9961472, i_b'length));
 		wait for 10 ns;
       wait for 100 ns;
    end process;

@@ -20,7 +20,7 @@ architecture multiplier_array of multiplier is
 	 type bit_array_2N is array (0 to NBITS - 1) of unsigned (2*NBITS - 1 downto 0);
     
     signal partial_products : bit_array_N := (others => (others => '0'));
-	 signal ext_partial_products : bit_array_2N := (others => (others => '0'));
+	 --signal ext_partial_products : bit_array_2N := (others => (others => '0'));
 	 signal ext_partial_products_shifted : bit_array_2N := (others => (others => '0'));
     signal b_bits : bit_array_N := (others => (others => '0'));
     signal sum: unsigned (2*NBITS - 1 downto 0) := (others => '0');
@@ -37,7 +37,7 @@ create_b_arrays : process (i_b)
         end loop;
 	end process;
 
-create_partial_products : process(b_bits)
+create_partial_products : process(b_bits,i_a)
     begin
          --RESIZE(v,n)
             --sum <= sum + partial_products(i);
@@ -46,32 +46,40 @@ create_partial_products : process(b_bits)
 			end loop;
 	end process;
 	
-extend_partial_products: process(partial_products)
-	begin
-			for i in 0 to NBITS - 1 loop
-				ext_partial_products(i) <= resize(partial_products(i), 2*NBITS); --slv_16'length
-			end loop;
-	end process;
+--extend_partial_products: process(partial_products) -- this could be trimmed if i knew how... i did it
+--	begin
+--			for i in 0 to NBITS - 1 loop
+--				ext_partial_products(i) <= resize(partial_products(i), 2*NBITS); --slv_16'length
+--			end loop;
+--	end process;
 	
-shift_partial_products: process(ext_partial_products)
+shift_extend_partial_products: process(partial_products) --before only shift
 	begin
 		for i in 0 to NBITS - 1 loop
-			ext_partial_products_shifted(i) <= shift_left(ext_partial_products(i), i);
+			ext_partial_products_shifted(i) <= shift_left(resize(partial_products(i), 2*NBITS), i);
+			-- before it used ext_partial_products(i)
 		end loop;
 	end process;
 	
 sum_all : process (ext_partial_products_shifted)
 
 	variable accumulator : unsigned(2*NBITS - 1 downto 0):=(others => '0');
+	
 	begin
+		accumulator := (others => '0'); -- this line is motherfuckingly important
+		-- WE NEED TO RESET THE ACCUMULATOR EACH TIME THE PROCESS RUNS
 		for i in 0 to NBITS - 1 loop --Sin'range
 			accumulator := accumulator + ext_partial_products_shifted(i);
 		end loop;
 		
 		sum <= accumulator;
 	end process;
-    
-	 o_p <= std_logic_vector(sum);
+
+result: process(sum)
+	begin
+		o_p <= std_logic_vector(sum);
+	end process;
+	 
 	 
 
 end architecture;
