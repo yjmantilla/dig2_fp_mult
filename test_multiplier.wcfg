@@ -3,7 +3,7 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="Y:/xilinx/fp_mul/test_multiplier_isim_beh.wdb" id="1" type="auto">
+      <db_ref path="Y:/xilinx/fp_mult/test_multiplier_isim_beh.wdb" id="1" type="auto">
          <top_modules>
             <top_module name="numeric_std" />
             <top_module name="std_logic_1164" />

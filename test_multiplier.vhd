@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer:
 --
--- Create Date:   17:25:17 07/23/2019
+-- Create Date:   19:24:20 07/23/2019
 -- Design Name:   
--- Module Name:   Y:/xilinx/fp_mul/test_multiplier.vhd
+-- Module Name:   Y:/xilinx/fp_mult/test_multiplier.vhd
 -- Project Name:  fp_mul
 -- Target Device:  
 -- Tool versions:  
@@ -28,7 +28,6 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 use ieee.numeric_std.all;
-
  
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -59,7 +58,6 @@ ARCHITECTURE behavior OF test_multiplier IS
    -- No clocks detected in port list. Replace <clock> below with 
    -- appropriate port name 
  
-
 BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
@@ -69,7 +67,6 @@ BEGIN
           o_p => o_p
         );
 
-   -- Clock process definitions
 
    -- Stimulus process
    stim_proc: process
@@ -85,7 +82,7 @@ BEGIN
 	MONITOR:
     process (o_p)
     begin
-        if now > 10 ns then
+        if now > 9 ns then
             report "a = " & natural'image (to_integer(unsigned(i_a)));
             report "b = " & natural'image (to_integer(unsigned(i_b)));
             report "product = " & natural'image (to_integer(unsigned(o_p)));
