@@ -92,7 +92,7 @@ BEGIN
 		
 		wait for 10 ns;
 
-      --wait;
+      wait;
    end process;
 
 END;

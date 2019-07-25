@@ -123,11 +123,12 @@ begin
 		
 	diminish_frac: process(P_FRAC_NORM,PRODUCT_EXPONENT_CORRECTION)
 		begin
-			if (PRODUCT_EXPONENT_CORRECTION = '1') then
-				P_FRAC_DIM <= P_FRAC_NORM(2*(NBITS_FP_FRAC + 1) - 1 - 1 downto 2*(NBITS_FP_FRAC + 1) - 1 - 1 - NBITS_FP_FRAC + 1);
-			else
+			-- it is the same for both, remember we shifted so the position of each bit changes
+			--if (PRODUCT_EXPONENT_CORRECTION = '1') then
+			--	P_FRAC_DIM <= P_FRAC_NORM(2*(NBITS_FP_FRAC + 1) - 1 - 1 downto 2*(NBITS_FP_FRAC + 1) - 1 - 1 - NBITS_FP_FRAC + 1);
+			--else
 				P_FRAC_DIM <= P_FRAC_NORM(2*(NBITS_FP_FRAC + 1) - 1 - 2 downto 2*(NBITS_FP_FRAC + 1) - 1 - 2 - NBITS_FP_FRAC + 1);
-			end if; 
+			--end if; 
 		end process;
 		
 	calc_exponent: process (PRODUCT_EXPONENT_CORRECTION,A_EXP,B_EXP)
