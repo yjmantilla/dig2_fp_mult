@@ -84,8 +84,8 @@ BEGIN
    begin		
       -- hold reset state for 100 ns.
       wait for 10 ns;	
-		i_a <= std_logic_vector (to_unsigned(9437184, i_a'length));
-		i_b <= std_logic_vector (to_unsigned(9961472, i_b'length));
+		i_a <= std_logic_vector (to_unsigned(245, i_a'length));
+		i_b <= std_logic_vector (to_unsigned(175, i_b'length));
 		wait for 10 ns;
       wait for 100 ns;
    end process;

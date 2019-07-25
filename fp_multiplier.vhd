@@ -67,7 +67,11 @@ signal A_SIGN : unsigned (0 downto 0):= "0"; -- it would be nice to know how to 
 signal B_SIGN : unsigned (0 downto 0):= "0";
 signal P_SIGN : unsigned (0 downto 0):= "0";
 signal PRODUCT_EXPONENT_CORRECTION : std_logic := '0';
-
+constant ZERO : unsigned (NBITS_FP - 1 downto 0):= (others => '0');
+constant NaN_EXP : unsigned (NBITS_FP_EXP - 1 downto 0):= (others => '1');
+constant INF_EXP : unsigned (NBITS_FP_EXP - 1 downto 0):= (others => '1');
+constant INF_FRAC : unsigned (NBITS_FP_FRAC - 1 downto 0):= (others => '0');
+constant NaN_FRAC : unsigned (NBITS_FP_FRAC - 1 downto 0):= (others => '1');
 COMPONENT multiplier
 	Generic ( NBITS : integer:= NBITS_FP_FRAC + 1); --extend 1 for integer part
 	PORT(
@@ -149,9 +153,24 @@ begin
 			P_SIGN <= A_SIGN xor B_SIGN;
 	end process;
 	
-	results: process(P_SIGN,P_EXP,P_FRAC_DIM)
+	results: process(P_SIGN,P_EXP,P_FRAC_DIM,A_FRAC,B_FRAC,A_EXP,B_EXP,A_SIGN,B_SIGN,i_fp_a,i_fp_b)
+	
+	variable inf : unsigned(NBITS_FP - 1 downto 0):= INF_EXP & "1" & INF_FRAC;
+	variable A : unsigned(NBITS_FP - 1 downto 0):= A_EXP & A_FRAC;
+	variable B : unsigned(NBITS_FP - 1  downto 0):= B_EXP & B_FRAC;
+	--variable NaN : unsigned(NBITS_FP - 1 - 1 downto 0):= NaN_EXP & NaN_FRAC;
 	begin
-			o_fp_p <= std_logic_vector(P_SIGN & P_EXP & P_FRAC_DIM);
+		-- test any for zero
+		-- cannot use & inside ifs?
+			if ((unsigned(i_fp_a) = ZERO) or (unsigned(i_fp_b) = ZERO)) then 
+				o_fp_p <= std_logic_vector(ZERO); -- 0 * X = 0
+			elsif ( A = inf or B = inf ) then
+				o_fp_p <= std_logic_vector(P_SIGN & INF_EXP & INF_FRAC); -- +- inf
+			elsif (A_EXP = NaN_EXP or B_EXP = NaN_EXP) then
+				o_fp_p <= std_logic_vector("0" & NaN_EXP & NaN_FRAC); --NaN
+			else
+				o_fp_p <= std_logic_vector(P_SIGN & P_EXP & P_FRAC_DIM);
+			end if;
 	end process;
 	
 
