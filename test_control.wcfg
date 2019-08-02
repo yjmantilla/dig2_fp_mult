@@ -3,14 +3,14 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="Y:/xilinx/fp_mul/test_control_isim_beh.wdb" id="1" type="auto">
+      <db_ref path="Y:/xilinx/fp_mult/test_control_isim_beh.wdb" id="1" type="auto">
          <top_modules>
             <top_module name="std_logic_1164" />
             <top_module name="test_control" />
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="17" />
+   <WVObjectSize size="18" />
    <wvobject fp_name="/test_control/i_clk" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">i_clk</obj_property>
       <obj_property name="ObjectShortName">i_clk</obj_property>
@@ -78,5 +78,9 @@
    <wvobject fp_name="/test_control/uut/next_part" type="other" db_ref_id="1">
       <obj_property name="ElementShortName">next_part</obj_property>
       <obj_property name="ObjectShortName">next_part</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_control/uut/s_op_state" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">s_op_state[2:0]</obj_property>
+      <obj_property name="ObjectShortName">s_op_state[2:0]</obj_property>
    </wvobject>
 </wave_config>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="Y:/xilinx/frank (2)/proyecto_2.5/Multiplicador_pf/test_control_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_unsigned" />
+            <top_module name="test_control" />
+            <top_module name="vcomponents" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="28" />
+   <wvobject fp_name="/test_control/reset" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_control/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_control/dato" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dato[7:0]</obj_property>
+      <obj_property name="ObjectShortName">dato[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_control/button" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">button</obj_property>
+      <obj_property name="ObjectShortName">button</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_control/c_p" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">c_p[7:0]</obj_property>
+      <obj_property name="ObjectShortName">c_p[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_control/led_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">led_out[6:0]</obj_property>
+      <obj_property name="ObjectShortName">led_out[6:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_control/anode_activate" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">anode_activate[3:0]</obj_property>
+      <obj_property name="ObjectShortName">anode_activate[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_control/clk_period" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_period</obj_property>
+      <obj_property name="ObjectShortName">clk_period</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_control/uut/current_state" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">current_state</obj_property>
+      <obj_property name="ObjectShortName">current_state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_control/uut/next_state" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">next_state</obj_property>
+      <obj_property name="ObjectShortName">next_state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_control/uut/Inst_data_path/in1" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">in1</obj_property>
+      <obj_property name="ObjectShortName">in1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_control/uut/Inst_data_path/in2" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">in2</obj_property>
+      <obj_property name="ObjectShortName">in2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_control/uut/Inst_data_path/in3" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">in3</obj_property>
+      <obj_property name="ObjectShortName">in3</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_control/uut/s_data_ready" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">s_data_ready</obj_property>
+      <obj_property name="ObjectShortName">s_data_ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_control/uut/s_multi_ready" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">s_multi_ready</obj_property>
+      <obj_property name="ObjectShortName">s_multi_ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_control/uut/s_show_ready" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">s_show_ready</obj_property>
+      <obj_property name="ObjectShortName">s_show_ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_control/uut/clk_div" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_div</obj_property>
+      <obj_property name="ObjectShortName">clk_div</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_control/uut/Inst_data_path/counter" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">counter</obj_property>
+      <obj_property name="ObjectShortName">counter</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_control/uut/Inst_data_path/counter1" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">counter1</obj_property>
+      <obj_property name="ObjectShortName">counter1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_control/uut/Inst_data_path/s_don_pulso" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">s_don_pulso</obj_property>
+      <obj_property name="ObjectShortName">s_don_pulso</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_control/uut/Inst_data_path/button_intermedio" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">button_intermedio</obj_property>
+      <obj_property name="ObjectShortName">button_intermedio</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_control/uut/Inst_data_path/a" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">a[31:0]</obj_property>
+      <obj_property name="ObjectShortName">a[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_control/uut/Inst_data_path/b" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">b[31:0]</obj_property>
+      <obj_property name="ObjectShortName">b[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_control/uut/Inst_data_path/c" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">c[31:0]</obj_property>
+      <obj_property name="ObjectShortName">c[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_control/uut/Inst_data_path/s_reset_counter" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">s_reset_counter</obj_property>
+      <obj_property name="ObjectShortName">s_reset_counter</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_control/uut/Inst_data_path/s_reset_counter1" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">s_reset_counter1</obj_property>
+      <obj_property name="ObjectShortName">s_reset_counter1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_control/a_i" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">a_i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">a_i[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_control/b_i" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">b_i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">b_i[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+</wave_config>

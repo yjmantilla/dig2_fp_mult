@@ -15,20 +15,20 @@ entity control_path is
     Generic
     (
     -- Use opcode way for controlling data path
-        OP_INPUT_A : STD_LOGIC_VECTOR := "000";
-        OP_INPUT_B : STD_LOGIC_VECTOR := "001";
-        OP_MULTIPLY : STD_LOGIC_VECTOR := "010";
-        OP_SHOW_C : STD_LOGIC_VECTOR := "011";
-        OP_RESET_STATE : STD_LOGIC_VECTOR := "111";
-        OP_RESET_PART : STD_LOGIC_VECTOR := "111";
-        OP_PART_3 : STD_LOGIC_VECTOR := "011";
-        OP_PART_2 : STD_LOGIC_VECTOR := "010";
-        OP_PART_1 : STD_LOGIC_VECTOR := "001";
-        OP_PART_0 : STD_LOGIC_VECTOR := "000";
-        A : STD_LOGIC_VECTOR := "1010";
-        B : STD_LOGIC_VECTOR := "1011";
-        C : STD_LOGIC_VECTOR := "1100";
-        F : STD_LOGIC_VECTOR := "1111"
+        constant OP_INPUT_A : STD_LOGIC_VECTOR := "000";
+        constant OP_INPUT_B : STD_LOGIC_VECTOR := "001";
+        constant OP_MULTIPLY : STD_LOGIC_VECTOR := "010";
+        constant OP_SHOW_C : STD_LOGIC_VECTOR := "011";
+        constant OP_RESET_STATE : STD_LOGIC_VECTOR := "111";
+        constant OP_RESET_PART : STD_LOGIC_VECTOR := "111";
+        constant OP_PART_3 : STD_LOGIC_VECTOR := "011";
+        constant OP_PART_2 : STD_LOGIC_VECTOR := "010";
+        constant OP_PART_1 : STD_LOGIC_VECTOR := "001";
+        constant OP_PART_0 : STD_LOGIC_VECTOR := "000";
+        constant A : STD_LOGIC_VECTOR := "1010";
+        constant B : STD_LOGIC_VECTOR := "1011";
+        constant C : STD_LOGIC_VECTOR := "1100";
+        constant F : STD_LOGIC_VECTOR := "1111"
     );
 
     Port
@@ -36,7 +36,7 @@ entity control_path is
         I_CLK : in STD_LOGIC;
         I_RESET : in STD_LOGIC;
         I_BUTTON_NEXT: in STD_LOGIC;
-        I_BUTTON_PREV: in STD_LOGIC; -- not gonna implement this right now
+        --I_BUTTON_PREV: in STD_LOGIC; -- not gonna implement this right now
         I_RESULT_READY: in STD_LOGIC;
         O_OP_STATE : out STD_LOGIC_VECTOR (2 downto 0);
         O_OP_PART : out STD_LOGIC_VECTOR (2 downto 0);
@@ -44,7 +44,7 @@ entity control_path is
     );
 
 end control_path;
-
+-- show drivers is useful when signal is undefined
 architecture Behavioral of control_path is
 
     type STATE_TYPE is 
@@ -80,6 +80,7 @@ architecture Behavioral of control_path is
     signal s_enable_a : STD_LOGIC := '0';
     signal s_enable_b : STD_LOGIC := '0';
     signal s_enable_parts : STD_LOGIC := '1';
+	
 
 -- las variables no se sintetizan tan bien
 begin
@@ -217,16 +218,19 @@ begin
                 s_op_part <= OP_PART_1;
                 s_disp_part <= "0001";
             when PART_0 =>
-                s_op_state <= OP_PART_0;
+                s_op_part <= OP_PART_0;
                 s_disp_part <= "0000";
             when RESET_PART =>
-                s_op_state <= OP_RESET_PART;
+                s_op_part <= OP_RESET_PART;
                 s_disp_part <= F;
         end case;
     end process;
 
-O_OP_STATE <= s_op_state;
-O_OP_PART <= s_op_part;
-O_DISP <= s_disp_state & s_disp_part;
+	OUTPUTS_PROCESS: process(s_op_state,s_op_part,s_disp_state,s_disp_part)
+	begin
+		O_OP_STATE <= s_op_state;
+		O_OP_PART <= s_op_part;
+		O_DISP <= s_disp_state & s_disp_part;
+	end process;
 end Behavioral;
 

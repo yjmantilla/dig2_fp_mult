@@ -60,7 +60,7 @@ shift_extend_partial_products: process(partial_products) --before only shift
 			-- before it used ext_partial_products(i)
 		end loop;
 	end process;
--- we could divide the sum to optimize
+	
 sum_all : process (ext_partial_products_shifted)
 
 	variable accumulator : unsigned(2*NBITS - 1 downto 0):=(others => '0');

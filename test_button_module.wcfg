@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="Y:/xilinx/fp_mult/test_button_module_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_unsigned" />
+            <top_module name="test_button_module" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="21" />
+   <wvobject fp_name="/test_button_module/in_button" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">in_button</obj_property>
+      <obj_property name="ObjectShortName">in_button</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_button_module/in_switch_vector" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">in_switch_vector[7:0]</obj_property>
+      <obj_property name="ObjectShortName">in_switch_vector[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_button_module/in_reset" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">in_reset</obj_property>
+      <obj_property name="ObjectShortName">in_reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_button_module/in_clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">in_clk</obj_property>
+      <obj_property name="ObjectShortName">in_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_button_module/out_switch_vector" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">out_switch_vector[7:0]</obj_property>
+      <obj_property name="ObjectShortName">out_switch_vector[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_button_module/in_clk_period" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">in_clk_period</obj_property>
+      <obj_property name="ObjectShortName">in_clk_period</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_button_module/uut/Inst_Pulse/button_in" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">button_in</obj_property>
+      <obj_property name="ObjectShortName">button_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_button_module/uut/Inst_Pulse/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_button_module/uut/Inst_Pulse/don_pulso" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">don_pulso</obj_property>
+      <obj_property name="ObjectShortName">don_pulso</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_button_module/uut/Inst_Pulse/d1" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">d1</obj_property>
+      <obj_property name="ObjectShortName">d1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_button_module/uut/Inst_Pulse/d2" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">d2</obj_property>
+      <obj_property name="ObjectShortName">d2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_button_module/uut/Inst_Pulse/q1" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">q1</obj_property>
+      <obj_property name="ObjectShortName">q1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_button_module/uut/Inst_Pulse/q2" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">q2</obj_property>
+      <obj_property name="ObjectShortName">q2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_button_module/uut/Inst_Pulse/salida" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">salida</obj_property>
+      <obj_property name="ObjectShortName">salida</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_button_module/uut/Inst_debounce/button_in" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">button_in</obj_property>
+      <obj_property name="ObjectShortName">button_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_button_module/uut/Inst_debounce/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_button_module/uut/Inst_debounce/button_out" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">button_out</obj_property>
+      <obj_property name="ObjectShortName">button_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_button_module/uut/Inst_debounce/button_prev" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">button_prev</obj_property>
+      <obj_property name="ObjectShortName">button_prev</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_button_module/uut/Inst_debounce/counter" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">counter[19:0]</obj_property>
+      <obj_property name="ObjectShortName">counter[19:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_button_module/uut/Inst_debounce/outb" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">outb</obj_property>
+      <obj_property name="ObjectShortName">outb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_button_module/uut/Inst_debounce/counter_size" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">counter_size</obj_property>
+      <obj_property name="ObjectShortName">counter_size</obj_property>
+   </wvobject>
+</wave_config>
