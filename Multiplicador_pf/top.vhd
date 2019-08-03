@@ -2,7 +2,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity Control is
+entity top is
    Port (
 		reset : in  STD_LOGIC;
 		clk : in  STD_LOGIC;
@@ -20,9 +20,9 @@ entity Control is
    ATTRIBUTE LOC OF C_p : SIGNAL IS "R4,F4,P15,E17,K14,K15,J15,J14";
 	ATTRIBUTE LOC OF Anode_Activate  : SIGNAL IS "F15,C18,H17,F17"; 
 	ATTRIBUTE LOC OF LED_out : SIGNAL IS "L18,F18,D17,D16,G14,J17,H14,C17";
-end Control;
+end top;
 
-architecture Behavioral of Control is
+architecture Behavioral of top is
 
 	type state_type is (INPUT,MULT,SHOW);
 		signal current_state : state_type := INPUT;

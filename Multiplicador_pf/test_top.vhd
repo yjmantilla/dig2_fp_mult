@@ -4,13 +4,13 @@
 --
 -- Create Date:   11:34:18 08/02/2019
 -- Design Name:   
--- Module Name:   Y:/xilinx/frank (2)/proyecto_2.5/Multiplicador_pf/test_control.vhd
+-- Module Name:   Y:/xilinx/frank (2)/proyecto_2.5/Multiplicador_pf/test_top.vhd
 -- Project Name:  Multiplicador_pf
 -- Target Device:  
 -- Tool versions:  
 -- Description:   
 -- 
--- VHDL Test Bench Created by ISE for module: Control
+-- VHDL Test Bench Created by ISE for module: top
 -- 
 -- Dependencies:
 -- 
@@ -32,14 +32,14 @@ USE ieee.std_logic_1164.ALL;
 -- arithmetic functions with Signed or Unsigned values
 --USE ieee.numeric_std.ALL;
  
-ENTITY test_control IS
-END test_control;
+ENTITY test_top IS
+END test_top;
  
-ARCHITECTURE behavior OF test_control IS 
+ARCHITECTURE behavior OF test_top IS 
  
     -- Component Declaration for the Unit Under Test (UUT)
  
-    COMPONENT Control
+    COMPONENT top
     PORT(
          reset : IN  std_logic;
          clk : IN  std_logic;
@@ -134,7 +134,7 @@ ARCHITECTURE behavior OF test_control IS
 BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
-   uut: Control PORT MAP (
+   uut: top PORT MAP (
           reset => reset,
           clk => clk,
           Dato => Dato,

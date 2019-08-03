@@ -1,0 +1,796 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> Reading design: top.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "top.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "top"
+Output Format                      : NGC
+Target Device                      : xc3s500e-5-fg320
+
+---- Source Options
+Top Module Name                    : top
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+WARNING:HDLParsers:3607 - Unit work/top is now defined in a different file.  It was defined in "Y:/xilinx/fp_mult/Multiplicador_pf/Control.vhd", and is now defined in "Y:/xilinx/fp_mult/Multiplicador_pf/top.vhd".
+WARNING:HDLParsers:3607 - Unit work/top/Behavioral is now defined in a different file.  It was defined in "Y:/xilinx/fp_mult/Multiplicador_pf/Control.vhd", and is now defined in "Y:/xilinx/fp_mult/Multiplicador_pf/top.vhd".
+Compiling vhdl file "Y:/xilinx/fp_mult/Multiplicador_pf/inst_multiplier.vhd" in Library work.
+Architecture multiplier_array of Entity multiplier is up to date.
+Compiling vhdl file "Y:/xilinx/fp_mult/Multiplicador_pf/debounce.vhd" in Library work.
+Architecture behavioral of Entity debounce is up to date.
+Compiling vhdl file "Y:/xilinx/fp_mult/Multiplicador_pf/Pulse.vhd" in Library work.
+Architecture behavioral of Entity pulse is up to date.
+Compiling vhdl file "Y:/xilinx/fp_mult/Multiplicador_pf/fp_multiplier.vhd" in Library work.
+Architecture behavioral of Entity fp_multiplier is up to date.
+Compiling vhdl file "Y:/xilinx/fp_mult/Multiplicador_pf/data_path.vhd" in Library work.
+Architecture behavioral of Entity data_path is up to date.
+Compiling vhdl file "Y:/xilinx/fp_mult/Multiplicador_pf/freq_div.vhd" in Library work.
+Architecture behavioral of Entity freq_div is up to date.
+Compiling vhdl file "Y:/xilinx/fp_mult/Multiplicador_pf/display_module.vhd" in Library work.
+Architecture behavioral of Entity display_module is up to date.
+Compiling vhdl file "Y:/xilinx/fp_mult/Multiplicador_pf/top.vhd" in Library work.
+Architecture behavioral of Entity top is up to date.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <top> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <data_path> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <freq_div> in library <work> (architecture <behavioral>) with generics.
+	MAX_COUNT = 3
+
+Analyzing hierarchy for entity <display_module> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <debounce> in library <work> (architecture <behavioral>) with generics.
+	counter_size = 19
+
+Analyzing hierarchy for entity <Pulse> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <fp_multiplier> in library <work> (architecture <behavioral>) with generics.
+	BIAS = 127
+	NBITS_FP = 32
+	NBITS_FP_EXP = 8
+	NBITS_FP_FRAC = 23
+
+Analyzing hierarchy for entity <multiplier> in library <work> (architecture <multiplier_array>) with generics.
+	NBITS = 24
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <top> in library <work> (Architecture <behavioral>).
+    Set user-defined property "LOC =  B8" for signal <clk> in unit <top>.
+    Set user-defined property "LOC =  R17 N17 L13 L14 K17 K18 H18 G18" for signal <Dato> in unit <top>.
+    Set user-defined property "LOC =  H13" for signal <button> in unit <top>.
+    Set user-defined property "LOC =  R4 F4 P15 E17 K14 K15 J15 J14" for signal <C_p> in unit <top>.
+    Set user-defined property "LOC =  L18 F18 D17 D16 G14 J17 H14 C17" for signal <LED_out> in unit <top>.
+    Set user-defined property "LOC =  F15 C18 H17 F17" for signal <Anode_Activate> in unit <top>.
+Entity <top> analyzed. Unit <top> generated.
+
+Analyzing Entity <data_path> in library <work> (Architecture <behavioral>).
+Entity <data_path> analyzed. Unit <data_path> generated.
+
+Analyzing generic Entity <debounce> in library <work> (Architecture <behavioral>).
+	counter_size = 19
+Entity <debounce> analyzed. Unit <debounce> generated.
+
+Analyzing Entity <Pulse> in library <work> (Architecture <behavioral>).
+Entity <Pulse> analyzed. Unit <Pulse> generated.
+
+Analyzing generic Entity <fp_multiplier> in library <work> (Architecture <behavioral>).
+	BIAS = 127
+	NBITS_FP = 32
+	NBITS_FP_EXP = 8
+	NBITS_FP_FRAC = 23
+Entity <fp_multiplier> analyzed. Unit <fp_multiplier> generated.
+
+Analyzing generic Entity <multiplier> in library <work> (Architecture <multiplier_array>).
+	NBITS = 24
+Entity <multiplier> analyzed. Unit <multiplier> generated.
+
+Analyzing generic Entity <freq_div> in library <work> (Architecture <behavioral>).
+	MAX_COUNT = 3
+Entity <freq_div> analyzed. Unit <freq_div> generated.
+
+Analyzing Entity <display_module> in library <work> (Architecture <behavioral>).
+INFO:Xst:1561 - "Y:/xilinx/fp_mult/Multiplicador_pf/display_module.vhd" line 73: Mux is complete : default of case is discarded
+INFO:Xst:1561 - "Y:/xilinx/fp_mult/Multiplicador_pf/display_module.vhd" line 119: Mux is complete : default of case is discarded
+Entity <display_module> analyzed. Unit <display_module> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <display_module>.
+    Related source file is "Y:/xilinx/fp_mult/Multiplicador_pf/display_module.vhd".
+    Found 4x4-bit ROM for signal <Anode_Activate>.
+    Found 16x7-bit ROM for signal <LED_out>.
+    Found 4-bit 4-to-1 multiplexer for signal <LED_BCD>.
+    Found 20-bit up counter for signal <refresh_counter>.
+    Summary:
+	inferred   2 ROM(s).
+	inferred   1 Counter(s).
+	inferred   4 Multiplexer(s).
+Unit <display_module> synthesized.
+
+
+Synthesizing Unit <debounce>.
+    Related source file is "Y:/xilinx/fp_mult/Multiplicador_pf/debounce.vhd".
+    Found 1-bit register for signal <button_prev>.
+    Found 1-bit xor2 for signal <button_prev$xor0000> created at line 46.
+    Found 20-bit up counter for signal <counter>.
+    Found 1-bit register for signal <outB>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   2 D-type flip-flop(s).
+Unit <debounce> synthesized.
+
+
+Synthesizing Unit <Pulse>.
+    Related source file is "Y:/xilinx/fp_mult/Multiplicador_pf/Pulse.vhd".
+    Found 1-bit register for signal <D2>.
+    Found 1-bit register for signal <Q1>.
+    Summary:
+	inferred   2 D-type flip-flop(s).
+Unit <Pulse> synthesized.
+
+
+Synthesizing Unit <multiplier>.
+    Related source file is "Y:/xilinx/fp_mult/Multiplicador_pf/inst_multiplier.vhd".
+    Found 48-bit adder for signal <accumulator$add0000> created at line 60.
+    Found 48-bit adder for signal <accumulator$add0001> created at line 60.
+    Found 48-bit adder for signal <accumulator$addsub0000> created at line 60.
+    Found 48-bit adder for signal <accumulator$addsub0001> created at line 60.
+    Found 48-bit adder for signal <accumulator$addsub0002> created at line 60.
+    Found 48-bit adder for signal <accumulator$addsub0003> created at line 60.
+    Found 48-bit adder for signal <accumulator$addsub0004> created at line 60.
+    Found 48-bit adder for signal <accumulator$addsub0005> created at line 60.
+    Found 48-bit adder for signal <accumulator$addsub0006> created at line 60.
+    Found 48-bit adder for signal <accumulator$addsub0007> created at line 60.
+    Found 48-bit adder for signal <accumulator$addsub0008> created at line 60.
+    Found 48-bit adder for signal <accumulator$addsub0009> created at line 60.
+    Found 48-bit adder for signal <accumulator$addsub0010> created at line 60.
+    Found 48-bit adder for signal <accumulator$addsub0011> created at line 60.
+    Found 48-bit adder for signal <accumulator$addsub0012> created at line 60.
+    Found 48-bit adder for signal <accumulator$addsub0013> created at line 60.
+    Found 48-bit adder for signal <accumulator$addsub0014> created at line 60.
+    Found 48-bit adder for signal <accumulator$addsub0015> created at line 60.
+    Found 48-bit adder for signal <accumulator$addsub0016> created at line 60.
+    Found 48-bit adder for signal <accumulator$addsub0017> created at line 60.
+    Found 48-bit adder for signal <sum>.
+    Found 48-bit adder for signal <sum$addsub0000> created at line 60.
+    Found 48-bit adder for signal <sum$addsub0001> created at line 60.
+    Summary:
+	inferred  23 Adder/Subtractor(s).
+Unit <multiplier> synthesized.
+
+
+Synthesizing Unit <freq_div>.
+    Related source file is "Y:/xilinx/fp_mult/Multiplicador_pf/freq_div.vhd".
+    Found 2-bit up counter for signal <s_count>.
+    Found 1-bit register for signal <s_oclk>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 D-type flip-flop(s).
+Unit <freq_div> synthesized.
+
+
+Synthesizing Unit <fp_multiplier>.
+    Related source file is "Y:/xilinx/fp_mult/Multiplicador_pf/fp_multiplier.vhd".
+WARNING:Xst:646 - Signal <P_FRAC_NORM<47:46>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <P_FRAC_NORM<22:0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 8-bit addsub for signal <P_EXP>.
+    Found 8-bit adder for signal <P_EXP$addsub0000> created at line 116.
+    Found 8-bit addsub for signal <P_EXP$mux0000> created at line 117.
+    Found 1-bit xor2 for signal <P_SIGN<0>>.
+    Summary:
+	inferred   3 Adder/Subtractor(s).
+Unit <fp_multiplier> synthesized.
+
+
+Synthesizing Unit <data_path>.
+    Related source file is "Y:/xilinx/fp_mult/Multiplicador_pf/data_path.vhd".
+    Found 32-bit register for signal <A>.
+    Found 32-bit register for signal <B>.
+    Found 8-bit register for signal <c_pp>.
+    Found 32-bit up counter for signal <counter>.
+    Found 32-bit up counter for signal <counter1>.
+    Found 1-bit register for signal <s_data_ready>.
+    Found 4-bit register for signal <s_display>.
+    Found 4-bit register for signal <s_display_part>.
+    Found 1-bit register for signal <s_multi_ready>.
+    Found 1-bit register for signal <s_reset_counter>.
+    Found 1-bit register for signal <s_reset_counter1>.
+    Found 1-bit register for signal <s_show_ready>.
+    Summary:
+	inferred   2 Counter(s).
+	inferred  85 D-type flip-flop(s).
+Unit <data_path> synthesized.
+
+
+Synthesizing Unit <top>.
+    Related source file is "Y:/xilinx/fp_mult/Multiplicador_pf/top.vhd".
+    Found finite state machine <FSM_0> for signal <current_state>.
+    -----------------------------------------------------------------------
+    | States             | 3                                              |
+    | Transitions        | 6                                              |
+    | Inputs             | 3                                              |
+    | Outputs            | 3                                              |
+    | Clock              | clk_div                   (rising_edge)        |
+    | Reset              | reset                     (positive)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | input                                          |
+    | Power Up State     | input                                          |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Summary:
+	inferred   1 Finite State Machine(s).
+Unit <top> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 2
+ 16x7-bit ROM                                          : 1
+ 4x4-bit ROM                                           : 1
+# Adders/Subtractors                                   : 26
+ 48-bit adder                                          : 23
+ 8-bit adder                                           : 1
+ 8-bit addsub                                          : 2
+# Counters                                             : 5
+ 2-bit up counter                                      : 1
+ 20-bit up counter                                     : 2
+ 32-bit up counter                                     : 2
+# Registers                                            : 77
+ 1-bit register                                        : 74
+ 4-bit register                                        : 2
+ 8-bit register                                        : 1
+# Multiplexers                                         : 1
+ 4-bit 4-to-1 multiplexer                              : 1
+# Xors                                                 : 2
+ 1-bit xor2                                            : 2
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <current_state/FSM> on signal <current_state[1:2]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ input | 00
+ mult  | 01
+ show  | 10
+-------------------
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 1
+# ROMs                                                 : 2
+ 16x7-bit ROM                                          : 1
+ 4x4-bit ROM                                           : 1
+# Adders/Subtractors                                   : 26
+ 48-bit adder                                          : 23
+ 8-bit adder                                           : 1
+ 8-bit addsub                                          : 2
+# Counters                                             : 5
+ 2-bit up counter                                      : 1
+ 20-bit up counter                                     : 2
+ 32-bit up counter                                     : 2
+# Registers                                            : 90
+ Flip-Flops                                            : 90
+# Multiplexers                                         : 1
+ 4-bit 4-to-1 multiplexer                              : 1
+# Xors                                                 : 2
+ 1-bit xor2                                            : 2
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <top> ...
+
+Optimizing unit <multiplier> ...
+
+Optimizing unit <fp_multiplier> ...
+
+Optimizing unit <data_path> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block top, actual ratio is 17.
+FlipFlop Inst_data_path/A_0 has been replicated 1 time(s)
+FlipFlop Inst_data_path/A_1 has been replicated 1 time(s)
+FlipFlop Inst_data_path/A_10 has been replicated 1 time(s)
+FlipFlop Inst_data_path/A_11 has been replicated 1 time(s)
+FlipFlop Inst_data_path/A_12 has been replicated 1 time(s)
+FlipFlop Inst_data_path/A_13 has been replicated 1 time(s)
+FlipFlop Inst_data_path/A_14 has been replicated 1 time(s)
+FlipFlop Inst_data_path/A_15 has been replicated 1 time(s)
+FlipFlop Inst_data_path/A_16 has been replicated 1 time(s)
+FlipFlop Inst_data_path/A_17 has been replicated 1 time(s)
+FlipFlop Inst_data_path/A_18 has been replicated 1 time(s)
+FlipFlop Inst_data_path/A_19 has been replicated 1 time(s)
+FlipFlop Inst_data_path/A_2 has been replicated 1 time(s)
+FlipFlop Inst_data_path/A_20 has been replicated 1 time(s)
+FlipFlop Inst_data_path/A_21 has been replicated 1 time(s)
+FlipFlop Inst_data_path/A_3 has been replicated 1 time(s)
+FlipFlop Inst_data_path/A_4 has been replicated 1 time(s)
+FlipFlop Inst_data_path/A_5 has been replicated 1 time(s)
+FlipFlop Inst_data_path/A_6 has been replicated 1 time(s)
+FlipFlop Inst_data_path/A_7 has been replicated 1 time(s)
+FlipFlop Inst_data_path/A_8 has been replicated 1 time(s)
+FlipFlop Inst_data_path/A_9 has been replicated 1 time(s)
+FlipFlop Inst_data_path/B_0 has been replicated 1 time(s)
+FlipFlop Inst_data_path/B_1 has been replicated 1 time(s)
+FlipFlop Inst_data_path/B_2 has been replicated 1 time(s)
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 223
+ Flip-Flops                                            : 223
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : top.ngr
+Top Level Output File Name         : top
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 30
+
+Cell Usage :
+# BELS                             : 2348
+#      GND                         : 1
+#      INV                         : 9
+#      LUT1                        : 106
+#      LUT2                        : 402
+#      LUT2_D                      : 123
+#      LUT2_L                      : 20
+#      LUT3                        : 46
+#      LUT4                        : 739
+#      LUT4_D                      : 7
+#      LUT4_L                      : 18
+#      MULT_AND                    : 11
+#      MUXCY                       : 436
+#      MUXF5                       : 13
+#      VCC                         : 1
+#      XORCY                       : 416
+# FlipFlops/Latches                : 223
+#      FD                          : 1
+#      FDC                         : 24
+#      FDE                         : 102
+#      FDPE                        : 1
+#      FDR                         : 2
+#      FDRE                        : 85
+#      FDRS                        : 1
+#      FDS                         : 7
+# Clock Buffers                    : 2
+#      BUFG                        : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 29
+#      IBUF                        : 10
+#      OBUF                        : 19
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-5 
+
+ Number of Slices:                      775  out of   4656    16%  
+ Number of Slice Flip Flops:            223  out of   9312     2%  
+ Number of 4 input LUTs:               1470  out of   9312    15%  
+ Number of IOs:                          30
+ Number of bonded IOBs:                  30  out of    232    12%  
+ Number of GCLKs:                         2  out of     24     8%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+Inst_freq_div/s_oclk               | BUFG                   | 200   |
+clk                                | BUFGP                  | 23    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+reset                              | IBUF                   | 25    |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: 48.864ns (Maximum Frequency: 20.465MHz)
+   Minimum input arrival time before clock: 4.075ns
+   Maximum output required time after clock: 6.772ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'Inst_freq_div/s_oclk'
+  Clock period: 48.864ns (frequency: 20.465MHz)
+  Total number of paths / destination ports: 23779383640935592000 / 390
+-------------------------------------------------------------------------
+Delay:               48.864ns (Levels of Logic = 95)
+  Source:            Inst_data_path/B_1_1 (FF)
+  Destination:       Inst_data_path/c_pp_6 (FF)
+  Source Clock:      Inst_freq_div/s_oclk rising
+  Destination Clock: Inst_freq_div/s_oclk rising
+
+  Data Path: Inst_data_path/B_1_1 to Inst_data_path/c_pp_6
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q             32   0.514   1.142  Inst_data_path/B_1_1 (Inst_data_path/B_1_1)
+     LUT2:I1->O            1   0.612   0.360  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/partial_products_1_and0000<1>1 (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/partial_products<1><1>)
+     LUT4:I3->O            1   0.612   0.360  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0001C11 (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0001C1)
+     LUT4:I3->O            1   0.612   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0001_Madd_lut<3> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0001_Madd_lut<3>)
+     MUXCY:S->O            1   0.404   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0001_Madd_cy<3> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0001_Madd_cy<3>)
+     XORCY:CI->O           2   0.699   0.383  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0001_Madd_xor<4> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/accumulator_addsub0001<4>)
+     LUT4:I3->O            1   0.612   0.387  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0003R1111 (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0003R1)
+     LUT3:I2->O            1   0.612   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0003_Madd_lut<4> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0003_Madd_lut<4>)
+     MUXCY:S->O            1   0.404   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0003_Madd_cy<4> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0003_Madd_cy<4>)
+     MUXCY:CI->O           1   0.051   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0003_Madd_cy<5> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0003_Madd_cy<5>)
+     XORCY:CI->O           2   0.699   0.383  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0003_Madd_xor<6> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/accumulator_addsub0003<6>)
+     LUT4:I3->O            1   0.612   0.387  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0005R1111 (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0005R1)
+     LUT3:I2->O            1   0.612   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0005_Madd_lut<6> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0005_Madd_lut<6>)
+     MUXCY:S->O            1   0.404   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0005_Madd_cy<6> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0005_Madd_cy<6>)
+     MUXCY:CI->O           1   0.051   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0005_Madd_cy<7> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0005_Madd_cy<7>)
+     XORCY:CI->O           2   0.699   0.383  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0005_Madd_xor<8> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/accumulator_addsub0005<8>)
+     LUT4:I3->O            1   0.612   0.387  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0007R1111 (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0007R1)
+     LUT3:I2->O            1   0.612   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0007_Madd_lut<8> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0007_Madd_lut<8>)
+     MUXCY:S->O            1   0.404   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0007_Madd_cy<8> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0007_Madd_cy<8>)
+     MUXCY:CI->O           1   0.051   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0007_Madd_cy<9> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0007_Madd_cy<9>)
+     XORCY:CI->O           2   0.699   0.383  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0007_Madd_xor<10> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/accumulator_addsub0007<10>)
+     LUT4:I3->O            1   0.612   0.387  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_add0000R1111 (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_add0000R1)
+     LUT3:I2->O            1   0.612   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_add0000_Madd_lut<10> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_add0000_Madd_lut<10>)
+     MUXCY:S->O            1   0.404   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_add0000_Madd_cy<10> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_add0000_Madd_cy<10>)
+     MUXCY:CI->O           1   0.052   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_add0000_Madd_cy<11> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_add0000_Madd_cy<11>)
+     XORCY:CI->O           2   0.699   0.383  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_add0000_Madd_xor<12> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/accumulator_add0000<12>)
+     LUT4:I3->O            1   0.612   0.387  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0010R1111 (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0010R1)
+     LUT3:I2->O            1   0.612   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0010_Madd_lut<12> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0010_Madd_lut<12>)
+     MUXCY:S->O            1   0.404   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0010_Madd_cy<12> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0010_Madd_cy<12>)
+     MUXCY:CI->O           1   0.052   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0010_Madd_cy<13> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0010_Madd_cy<13>)
+     XORCY:CI->O           2   0.699   0.383  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0010_Madd_xor<14> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/accumulator_addsub0010<14>)
+     LUT4:I3->O            1   0.612   0.387  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0012R1111 (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0012R1)
+     LUT3:I2->O            1   0.612   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0012_Madd_lut<14> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0012_Madd_lut<14>)
+     MUXCY:S->O            1   0.404   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0012_Madd_cy<14> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0012_Madd_cy<14>)
+     MUXCY:CI->O           1   0.052   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0012_Madd_cy<15> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0012_Madd_cy<15>)
+     XORCY:CI->O           2   0.699   0.383  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0012_Madd_xor<16> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/accumulator_addsub0012<16>)
+     LUT4:I3->O            1   0.612   0.387  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0014R1111 (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0014R1)
+     LUT3:I2->O            1   0.612   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0014_Madd_lut<16> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0014_Madd_lut<16>)
+     MUXCY:S->O            1   0.404   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0014_Madd_cy<16> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0014_Madd_cy<16>)
+     MUXCY:CI->O           1   0.052   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0014_Madd_cy<17> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0014_Madd_cy<17>)
+     XORCY:CI->O           2   0.699   0.383  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0014_Madd_xor<18> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/accumulator_addsub0014<18>)
+     LUT4:I3->O            1   0.612   0.387  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0016R1111 (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0016R1)
+     LUT3:I2->O            1   0.612   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0016_Madd_lut<18> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0016_Madd_lut<18>)
+     MUXCY:S->O            1   0.404   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0016_Madd_cy<18> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0016_Madd_cy<18>)
+     MUXCY:CI->O           1   0.052   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0016_Madd_cy<19> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0016_Madd_cy<19>)
+     XORCY:CI->O           2   0.699   0.383  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_addsub0016_Madd_xor<20> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/accumulator_addsub0016<20>)
+     LUT4:I3->O            1   0.612   0.387  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_add0001R1111 (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_add0001R1)
+     LUT3:I2->O            1   0.612   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_add0001_Madd_lut<20> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_add0001_Madd_lut<20>)
+     MUXCY:S->O            1   0.404   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_add0001_Madd_cy<20> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_add0001_Madd_cy<20>)
+     MUXCY:CI->O           1   0.052   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_add0001_Madd_cy<21> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_add0001_Madd_cy<21>)
+     XORCY:CI->O           2   0.699   0.383  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_accumulator_add0001_Madd_xor<22> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/accumulator_add0001<22>)
+     LUT4:I3->O            1   0.612   0.387  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001R1111 (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001R1)
+     LUT3:I2->O            1   0.612   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_lut<22> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_lut<22>)
+     MUXCY:S->O            1   0.404   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<22> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<22>)
+     MUXCY:CI->O           1   0.052   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<23> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<23>)
+     MUXCY:CI->O           1   0.052   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<24> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<24>)
+     MUXCY:CI->O           1   0.052   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<25> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<25>)
+     MUXCY:CI->O           1   0.052   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<26> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<26>)
+     MUXCY:CI->O           1   0.052   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<27> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<27>)
+     MUXCY:CI->O           1   0.052   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<28> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<28>)
+     MUXCY:CI->O           1   0.052   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<29> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<29>)
+     MUXCY:CI->O           1   0.052   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<30> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<30>)
+     MUXCY:CI->O           1   0.052   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<31> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<31>)
+     MUXCY:CI->O           1   0.052   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<32> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<32>)
+     MUXCY:CI->O           1   0.052   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<33> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<33>)
+     MUXCY:CI->O           1   0.052   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<34> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<34>)
+     MUXCY:CI->O           1   0.052   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<35> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<35>)
+     MUXCY:CI->O           1   0.052   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<36> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<36>)
+     MUXCY:CI->O           1   0.052   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<37> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<37>)
+     MUXCY:CI->O           1   0.052   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<38> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<38>)
+     MUXCY:CI->O           1   0.052   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<39> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<39>)
+     MUXCY:CI->O           1   0.052   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<40> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<40>)
+     MUXCY:CI->O           1   0.052   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<41> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<41>)
+     MUXCY:CI->O           1   0.052   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<42> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<42>)
+     MUXCY:CI->O           1   0.052   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<43> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<43>)
+     MUXCY:CI->O           1   0.052   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<44> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_cy<44>)
+     XORCY:CI->O           1   0.699   0.426  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_addsub0001_Madd_xor<45> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/sum_addsub0001<45>)
+     LUT2:I1->O            1   0.612   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_lut<45> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_lut<45>)
+     MUXCY:S->O            1   0.404   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_cy<45> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_cy<45>)
+     MUXCY:CI->O           0   0.052   0.000  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_cy<46> (Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_cy<46>)
+     XORCY:CI->O          42   0.699   1.106  Inst_data_path/Ins_fp_multiplier/Inst_multiplier/Madd_sum_xor<47> (Inst_data_path/Ins_fp_multiplier/PRODUCT_EXPONENT_CORRECTION)
+     LUT3:I2->O            1   0.612   0.387  Inst_data_path/Ins_fp_multiplier/P_EXP_mux0003<0>1 (Inst_data_path/Ins_fp_multiplier/P_EXP_mux0003<0>)
+     LUT3:I2->O            1   0.612   0.000  Inst_data_path/Ins_fp_multiplier/Maddsub_P_EXP_mux0000_lut<0> (Inst_data_path/Ins_fp_multiplier/Maddsub_P_EXP_mux0000_lut<0>)
+     MUXCY:S->O            1   0.404   0.000  Inst_data_path/Ins_fp_multiplier/Maddsub_P_EXP_mux0000_cy<0> (Inst_data_path/Ins_fp_multiplier/Maddsub_P_EXP_mux0000_cy<0>)
+     MUXCY:CI->O           1   0.051   0.000  Inst_data_path/Ins_fp_multiplier/Maddsub_P_EXP_mux0000_cy<1> (Inst_data_path/Ins_fp_multiplier/Maddsub_P_EXP_mux0000_cy<1>)
+     MUXCY:CI->O           1   0.051   0.000  Inst_data_path/Ins_fp_multiplier/Maddsub_P_EXP_mux0000_cy<2> (Inst_data_path/Ins_fp_multiplier/Maddsub_P_EXP_mux0000_cy<2>)
+     MUXCY:CI->O           1   0.051   0.000  Inst_data_path/Ins_fp_multiplier/Maddsub_P_EXP_mux0000_cy<3> (Inst_data_path/Ins_fp_multiplier/Maddsub_P_EXP_mux0000_cy<3>)
+     MUXCY:CI->O           1   0.051   0.000  Inst_data_path/Ins_fp_multiplier/Maddsub_P_EXP_mux0000_cy<4> (Inst_data_path/Ins_fp_multiplier/Maddsub_P_EXP_mux0000_cy<4>)
+     MUXCY:CI->O           1   0.051   0.000  Inst_data_path/Ins_fp_multiplier/Maddsub_P_EXP_mux0000_cy<5> (Inst_data_path/Ins_fp_multiplier/Maddsub_P_EXP_mux0000_cy<5>)
+     XORCY:CI->O           1   0.699   0.509  Inst_data_path/Ins_fp_multiplier/Maddsub_P_EXP_mux0000_xor<6> (Inst_data_path/Ins_fp_multiplier/P_EXP_mux0000<6>)
+     LUT1:I0->O            1   0.612   0.000  Inst_data_path/Ins_fp_multiplier/Maddsub_P_EXP_cy<6>_rt (Inst_data_path/Ins_fp_multiplier/Maddsub_P_EXP_cy<6>_rt)
+     MUXCY:S->O            0   0.404   0.000  Inst_data_path/Ins_fp_multiplier/Maddsub_P_EXP_cy<6> (Inst_data_path/Ins_fp_multiplier/Maddsub_P_EXP_cy<6>)
+     XORCY:CI->O           1   0.699   0.360  Inst_data_path/Ins_fp_multiplier/Maddsub_P_EXP_xor<7> (Inst_data_path/Ins_fp_multiplier/P_EXP<7>)
+     LUT4:I3->O            1   0.612   0.000  Inst_data_path/c_pp_mux0005<30>1178_F (N364)
+     MUXF5:I0->O           1   0.278   0.360  Inst_data_path/c_pp_mux0005<30>1178 (Inst_data_path/c_pp_mux0005<30>1178)
+     LUT4:I3->O            1   0.612   0.000  Inst_data_path/c_pp_mux0005<30>12901 (Inst_data_path/c_pp_mux0005<30>1290)
+     FDS:D                     0.268          Inst_data_path/c_pp_6
+    ----------------------------------------
+    Total                     48.864ns (36.155ns logic, 12.709ns route)
+                                       (74.0% logic, 26.0% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 3.882ns (frequency: 257.632MHz)
+  Total number of paths / destination ports: 217 / 24
+-------------------------------------------------------------------------
+Delay:               3.882ns (Levels of Logic = 20)
+  Source:            Inst_display_module/refresh_counter_1 (FF)
+  Destination:       Inst_display_module/refresh_counter_19 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: Inst_display_module/refresh_counter_1 to Inst_display_module/refresh_counter_19
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              1   0.514   0.509  Inst_display_module/refresh_counter_1 (Inst_display_module/refresh_counter_1)
+     LUT1:I0->O            1   0.612   0.000  Inst_display_module/Mcount_refresh_counter_cy<1>_rt (Inst_display_module/Mcount_refresh_counter_cy<1>_rt)
+     MUXCY:S->O            1   0.404   0.000  Inst_display_module/Mcount_refresh_counter_cy<1> (Inst_display_module/Mcount_refresh_counter_cy<1>)
+     MUXCY:CI->O           1   0.051   0.000  Inst_display_module/Mcount_refresh_counter_cy<2> (Inst_display_module/Mcount_refresh_counter_cy<2>)
+     MUXCY:CI->O           1   0.051   0.000  Inst_display_module/Mcount_refresh_counter_cy<3> (Inst_display_module/Mcount_refresh_counter_cy<3>)
+     MUXCY:CI->O           1   0.051   0.000  Inst_display_module/Mcount_refresh_counter_cy<4> (Inst_display_module/Mcount_refresh_counter_cy<4>)
+     MUXCY:CI->O           1   0.051   0.000  Inst_display_module/Mcount_refresh_counter_cy<5> (Inst_display_module/Mcount_refresh_counter_cy<5>)
+     MUXCY:CI->O           1   0.051   0.000  Inst_display_module/Mcount_refresh_counter_cy<6> (Inst_display_module/Mcount_refresh_counter_cy<6>)
+     MUXCY:CI->O           1   0.051   0.000  Inst_display_module/Mcount_refresh_counter_cy<7> (Inst_display_module/Mcount_refresh_counter_cy<7>)
+     MUXCY:CI->O           1   0.051   0.000  Inst_display_module/Mcount_refresh_counter_cy<8> (Inst_display_module/Mcount_refresh_counter_cy<8>)
+     MUXCY:CI->O           1   0.051   0.000  Inst_display_module/Mcount_refresh_counter_cy<9> (Inst_display_module/Mcount_refresh_counter_cy<9>)
+     MUXCY:CI->O           1   0.051   0.000  Inst_display_module/Mcount_refresh_counter_cy<10> (Inst_display_module/Mcount_refresh_counter_cy<10>)
+     MUXCY:CI->O           1   0.051   0.000  Inst_display_module/Mcount_refresh_counter_cy<11> (Inst_display_module/Mcount_refresh_counter_cy<11>)
+     MUXCY:CI->O           1   0.051   0.000  Inst_display_module/Mcount_refresh_counter_cy<12> (Inst_display_module/Mcount_refresh_counter_cy<12>)
+     MUXCY:CI->O           1   0.051   0.000  Inst_display_module/Mcount_refresh_counter_cy<13> (Inst_display_module/Mcount_refresh_counter_cy<13>)
+     MUXCY:CI->O           1   0.051   0.000  Inst_display_module/Mcount_refresh_counter_cy<14> (Inst_display_module/Mcount_refresh_counter_cy<14>)
+     MUXCY:CI->O           1   0.051   0.000  Inst_display_module/Mcount_refresh_counter_cy<15> (Inst_display_module/Mcount_refresh_counter_cy<15>)
+     MUXCY:CI->O           1   0.051   0.000  Inst_display_module/Mcount_refresh_counter_cy<16> (Inst_display_module/Mcount_refresh_counter_cy<16>)
+     MUXCY:CI->O           1   0.051   0.000  Inst_display_module/Mcount_refresh_counter_cy<17> (Inst_display_module/Mcount_refresh_counter_cy<17>)
+     MUXCY:CI->O           0   0.051   0.000  Inst_display_module/Mcount_refresh_counter_cy<18> (Inst_display_module/Mcount_refresh_counter_cy<18>)
+     XORCY:CI->O           1   0.699   0.000  Inst_display_module/Mcount_refresh_counter_xor<19> (Result<19>)
+     FDC:D                     0.268          Inst_display_module/refresh_counter_19
+    ----------------------------------------
+    Total                      3.882ns (3.373ns logic, 0.509ns route)
+                                       (86.9% logic, 13.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'Inst_freq_div/s_oclk'
+  Total number of paths / destination ports: 112 / 112
+-------------------------------------------------------------------------
+Offset:              4.075ns (Levels of Logic = 2)
+  Source:            button (PAD)
+  Destination:       Inst_data_path/Inst_debounce/counter_19 (FF)
+  Destination Clock: Inst_freq_div/s_oclk rising
+
+  Data Path: button to Inst_data_path/Inst_debounce/counter_19
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             3   1.106   0.603  button_IBUF (button_IBUF)
+     LUT2:I0->O           21   0.612   0.959  Inst_data_path/Inst_debounce/button_prev_xor00001 (Inst_data_path/Inst_debounce/button_prev_xor0000)
+     FDRE:R                    0.795          Inst_data_path/Inst_debounce/counter_0
+    ----------------------------------------
+    Total                      4.075ns (2.513ns logic, 1.562ns route)
+                                       (61.7% logic, 38.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 60 / 9
+-------------------------------------------------------------------------
+Offset:              6.772ns (Levels of Logic = 3)
+  Source:            Inst_display_module/refresh_counter_18 (FF)
+  Destination:       LED_out<6> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: Inst_display_module/refresh_counter_18 to LED_out<6>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              7   0.514   0.754  Inst_display_module/refresh_counter_18 (Inst_display_module/refresh_counter_18)
+     LUT4:I0->O            7   0.612   0.754  Inst_display_module/Mmux_LED_BCD81 (Inst_display_module/LED_BCD<3>)
+     LUT4:I0->O            1   0.612   0.357  Inst_display_module/Mrom_LED_out21 (LED_out_2_OBUF)
+     OBUF:I->O                 3.169          LED_out_2_OBUF (LED_out<2>)
+    ----------------------------------------
+    Total                      6.772ns (4.907ns logic, 1.865ns route)
+                                       (72.5% logic, 27.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'Inst_freq_div/s_oclk'
+  Total number of paths / destination ports: 64 / 15
+-------------------------------------------------------------------------
+Offset:              6.499ns (Levels of Logic = 3)
+  Source:            Inst_data_path/s_display_3 (FF)
+  Destination:       LED_out<2> (PAD)
+  Source Clock:      Inst_freq_div/s_oclk rising
+
+  Data Path: Inst_data_path/s_display_3 to LED_out<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              3   0.514   0.481  Inst_data_path/s_display_3 (Inst_data_path/s_display_3)
+     LUT4:I2->O            7   0.612   0.754  Inst_display_module/Mmux_LED_BCD81 (Inst_display_module/LED_BCD<3>)
+     LUT4:I0->O            1   0.612   0.357  Inst_display_module/Mrom_LED_out21 (LED_out_2_OBUF)
+     OBUF:I->O                 3.169          LED_out_2_OBUF (LED_out<2>)
+    ----------------------------------------
+    Total                      6.499ns (4.907ns logic, 1.592ns route)
+                                       (75.5% logic, 24.5% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 11.00 secs
+Total CPU time to Xst completion: 10.59 secs
+ 
+--> 
+
+Total memory usage is 4585000 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    4 (   0 filtered)
+Number of infos    :    3 (   0 filtered)
+
