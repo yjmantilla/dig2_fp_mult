@@ -51,14 +51,14 @@
 *.vhi
 *.sym
 *.wdb
-*/_ngo/*
-*/xst/*
-*/iseconfig/*
-*/xlnx_auto_0_xdb/*
+*_ngo*
+*xst*
+*iseconfig*
+*xlnx_auto_0_xdb*
 *pad*
 *envsettings*
 *webtalk*
-*__pycache__/*
+*__pycache__*
 # Packages #
 ############
 # it's better to unpack these files and commit the raw source
