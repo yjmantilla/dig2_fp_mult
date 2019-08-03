@@ -135,7 +135,10 @@ begin
 			inf := INF_EXP & "1" & INF_FRAC;
 			A :=  A_EXP & A_FRAC;
 			B := B_EXP & B_FRAC;
-			if ((unsigned(i_fp_a) = ZERO) or (unsigned(i_fp_b) = ZERO)) then 
+
+			if ( ((unsigned(i_fp_a) = ZERO) and B = inf) or ( (unsigned(i_fp_b) = ZERO) and A = inf )) then
+				o_fp_p <= std_logic_vector("0" & NaN_EXP & NaN_FRAC); --NaN
+			elsif ((unsigned(i_fp_a) = ZERO) or (unsigned(i_fp_b) = ZERO)) then 
 				o_fp_p <= std_logic_vector(ZERO); -- 0 * X = 0
 			elsif ( A = inf or B = inf ) then
 				o_fp_p <= std_logic_vector(P_SIGN & INF_EXP & INF_FRAC); -- +- inf
