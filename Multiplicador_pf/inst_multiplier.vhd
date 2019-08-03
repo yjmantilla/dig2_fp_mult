@@ -3,10 +3,7 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity multiplier is
-    Generic
-	 (
-        NBITS : integer := 24
-    );
+    Generic	 ( NBITS : integer := 24  );
 	
     port (
         i_a:  in  std_logic_vector  (NBITS - 1 downto 0);
@@ -16,54 +13,45 @@ entity multiplier is
 end entity;
 
 architecture multiplier_array of multiplier is
-    type bit_array_N is array (0 to NBITS - 1) of unsigned (NBITS - 1 downto 0) ;
-	 type bit_array_2N is array (0 to NBITS - 1) of unsigned (2*NBITS - 1 downto 0);
+    type bit_array_N is array (0 to NBITS - 1) of unsigned (NBITS - 1 downto 0) ; -- tipo de dato matriz NBITS*NBITS
+	 type bit_array_2N is array (0 to NBITS - 1) of unsigned (2*NBITS - 1 downto 0); --NBITS*2NBITS
     
-    signal partial_products : bit_array_N := (others => (others => '0'));
-	 --signal ext_partial_products : bit_array_2N := (others => (others => '0'));
+    signal partial_products : bit_array_N := (others => (others => '0'));	--  en todas las filas lleveme todas las columnas a 0
 	 signal ext_partial_products_shifted : bit_array_2N := (others => (others => '0'));
     signal b_bits : bit_array_N := (others => (others => '0'));
     signal sum: unsigned (2*NBITS - 1 downto 0) := (others => '0');
-	 --signal flag_arrays_ready : std_logic := '0';
-
+	 
 begin
 
     -- AND Array Multiplies
--- 
+
 create_b_arrays : process (i_b)
 	begin
         for i in 0 to NBITS - 1 loop
-            b_bits(i) <= (others => i_b(i));
+            b_bits(i) <= (others => i_b(i)); -- cada fila es la extension de un bit de b
         end loop;
 	end process;
 
+
 create_partial_products : process(b_bits,i_a)
     begin
-         --RESIZE(v,n)
-            --sum <= sum + partial_products(i);
 			for i in 0 to NBITS - 1 loop
-				partial_products(i) <= unsigned(i_a) and b_bits(i);
+				partial_products(i) <= unsigned(i_a) and b_bits(i);--multiplicacion de a con cada bit de b
 			end loop;
 	end process;
 	
---extend_partial_products: process(partial_products) -- this could be trimmed if i knew how... i did it
---	begin
---			for i in 0 to NBITS - 1 loop
---				ext_partial_products(i) <= resize(partial_products(i), 2*NBITS); --slv_16'length
---			end loop;
---	end process;
 	
-shift_extend_partial_products: process(partial_products) --before only shift
+shift_extend_partial_products: process(partial_products)
 	begin
-		for i in 0 to NBITS - 1 loop
+		for i in 0 to NBITS - 1 loop -- resize : cambia el tamaño de N  a 2N    _  shift_left: LO CORRE i VECES A la izquierda
+				-- resize hace la extension con signo , como son unsigned agrega 0s
 			ext_partial_products_shifted(i) <= shift_left(resize(partial_products(i), 2*NBITS), i);
-			-- before it used ext_partial_products(i)
 		end loop;
 	end process;
 	
 sum_all : process (ext_partial_products_shifted)
 
-	variable accumulator : unsigned(2*NBITS - 1 downto 0):=(others => '0');
+	variable accumulator : unsigned(2*NBITS - 1 downto 0):=(others => '0');--sumar
 	
 	begin
 		accumulator := (others => '0'); -- this line is motherfuckingly important
@@ -77,7 +65,7 @@ sum_all : process (ext_partial_products_shifted)
 
 result: process(sum)
 	begin
-		o_p <= std_logic_vector(sum);
+		o_p <= std_logic_vector(sum);-- conversion a vector logico de la suma
 	end process;
 	 
 	 

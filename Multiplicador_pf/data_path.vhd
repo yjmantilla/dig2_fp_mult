@@ -207,7 +207,7 @@ begin
 -------------MULTIPLICACION-----------------
 			if (in2='1') then 
 				s_multi_ready <= '1';
-				--c_pp <= "11101111";
+				c_pp <= "11101111";
 				s_data_ready <= '0';
 			elsif (in2='0') then 
 				s_multi_ready <= '0';

@@ -14,13 +14,12 @@ entity Control is
 	);
 
 	ATTRIBUTE LOC: STRING;
-	ATTRIBUTE LOC OF clk : SIGNAL IS "B8";-- system clock 50 MHz (Nexys2)
+	ATTRIBUTE LOC OF clk : SIGNAL IS "B8";
 	ATTRIBUTE LOC OF Dato  : SIGNAL IS "R17,N17,L13,L14,K17,K18,H18,G18"; 
-	ATTRIBUTE LOC OF button : SIGNAL IS "H13";	
+	ATTRIBUTE LOC OF button : SIGNAL IS "H13";	-- system clock 50 MHz (Nexys2)
    ATTRIBUTE LOC OF C_p : SIGNAL IS "R4,F4,P15,E17,K14,K15,J15,J14";
 	ATTRIBUTE LOC OF Anode_Activate  : SIGNAL IS "F15,C18,H17,F17"; 
 	ATTRIBUTE LOC OF LED_out : SIGNAL IS "L18,F18,D17,D16,G14,J17,H14,C17";
-	ATTRIBUTE LOC OF reset : SIGNAL IS "B18";
 end Control;
 
 architecture Behavioral of Control is
